@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dynamic-params
+spec:
+  serviceAccount: asb
+  containers:
+  - image: rthallisey/dynamic-parameters:latest
+    imagePullPolicy: IfNotPresent
+    name: dynamic-params
+    env:
+    - name: RESOURCE
+      value: "pod"
+    - name: SLEEP_INTERVAL
+      value: "1"
+    - name: USER
+      value: "admin"
+    - name: PASSWORD
+      value: "admin"
+  restartPolicy: Always
