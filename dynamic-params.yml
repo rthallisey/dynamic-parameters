@@ -11,6 +11,10 @@ spec:
     env:
     - name: RESOURCE
       value: "pod"
+    - name: BUNDLE_NAME
+      value: "dh-dynamic-apb"
+    - name: PARAMETER
+      value: "pods"
     - name: SLEEP_INTERVAL
       value: "1"
     - name: USER

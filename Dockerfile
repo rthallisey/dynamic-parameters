@@ -9,8 +9,14 @@ RUN yum -y install epel-release centos-release-openshift-origin \
 
 RUN pip install -U apb requests
 
+ENV BASE_DIR=/opt/apb
+ENV HOME=${BASE_DIR}
+
 RUN mkdir -p /opt/apb/.kube
+
 COPY config /opt/apb/.kube/config
+COPY create-patch.py /opt/apb/create-patch.py
+RUN chmod -R g=u /opt/apb
 
 COPY entrypoint.sh /usr/bin/
 
